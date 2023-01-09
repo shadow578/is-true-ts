@@ -16,15 +16,21 @@
   "bugs": {
     "url": "https://github.com/shadow578/is-true-ts/issues"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
     "build": "tsc",
+    "test": "jest --config jestconfig.json",
     "format": "prettier --ignore-path .gitignore --write \"src/**/*.+(js|ts|json)\"",
     "lint": "eslint --ext .js,.ts src",
-    "test": "jest --config jestconfig.json"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@types/jest": "^29.2.5",
