@@ -17,6 +17,9 @@
     "url": "https://github.com/shadow578/is-true-ts/issues"
   },
   "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier --ignore-path .gitignore --write \"src/**/*.+(js|ts|json)\"",
